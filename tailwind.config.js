@@ -26,7 +26,7 @@ module.exports = {
         side: '375px',
         form: '645px',
         19: '4.7rem',
-        184: '35.5rem',
+        184: '36.5rem',
         92: '23.5rem',
         930: '930px',
         600: '600px'
@@ -35,6 +35,8 @@ module.exports = {
         'blue-marine': 'hsl(213, 96%, 18%)',
         'blue-purplish': 'hsl(228, 100%, 84%)',
         'blue-light': 'hsl(206, 94%, 87%)',
+        'blue-purple': 'rgb(141, 137, 209)',
+        'blue-purple-light': 'rgb(248, 249, 255)',
         'red-strawberry': 'hsl(354, 84%, 57%)',
         'gray-cool': 'hsl(231, 11%, 63%)',
         'gray-light': 'hsl(229, 24%, 87%)',
