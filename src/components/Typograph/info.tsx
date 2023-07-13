@@ -1,3 +1,7 @@
-export const Info = ({ children }: { children: React.ReactNode }) => (
-  <span className="text-sm">{children}</span>
-);
+export const Info = ({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) => <span className={`text-sm ${className}`}>{children}</span>;

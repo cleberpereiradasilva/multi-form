@@ -2,10 +2,16 @@
 import { useState } from "react";
 import { Side } from "@/components/side";
 import { Steps } from "@/components/steps";
+import { Form } from "@/components/form";
 
 export default function Home() {
-  const [step, setStep] = useState(4);
+  const [step, setStep] = useState(1);
   const [plan, setPlan] = useState("Pro");
+
+  const handleSubmit = (event: any) => {
+    event.preventDefault();
+    console.log(event.target);
+  };
 
   return (
     <main className="flex bg-blue-light font-ubuntu text-base min-h-screen sm:flex-row md:flex-col md:items-center sm:items-stretch  justify-center md:p-5 sm:p-0">
@@ -20,21 +26,38 @@ export default function Home() {
           <Side.SideStep stepNumber={3} active={step === 3}>
             ADD ONS
           </Side.SideStep>
-          <Side.SideStep stepNumber={4} active={step === 4}>
+          <Side.SideStep stepNumber={4} active={step === 4 || step === 5}>
             SUMARY
           </Side.SideStep>
         </Side.SideBar>
-        <div className="h-full w-full flex  flex-col justify-between">
-          <Steps.One className={step === 1 ? "" : "hidden"} />
-          <Steps.Two
-            className={step === 2 ? "" : "hidden"}
-            plan={plan}
-            setPlan={setPlan}
-          />
-          <Steps.Three className={step === 3 ? "" : "hidden"} />
-          <Steps.Sumary className={step === 4 ? "" : "hidden"} />
-          <Steps.Footer step={step} setStep={setStep} />
-        </div>
+        <Form.Root className="h-full" onSubmit={handleSubmit}>
+          <div className="h-full w-full flex  flex-col justify-between">
+            <Steps.One
+              className={step === 1 ? "" : "hidden"}
+              handleNextClick={() => setStep(step + 1)}
+            />
+            <Steps.Two
+              className={step === 2 ? "" : "hidden"}
+              plan={plan}
+              setPlan={setPlan}
+              handleNextClick={() => setStep(step + 1)}
+              handleBackClick={() => setStep(step - 1)}
+            />
+            <Steps.Three
+              className={step === 3 ? "" : "hidden"}
+              handleNextClick={() => setStep(step + 1)}
+              handleBackClick={() => setStep(step - 1)}
+            />
+            <Steps.Sumary
+              className={step === 4 ? "" : "hidden"}
+              changePlan={() => setStep(2)}
+              handleBackClick={() => setStep(step - 1)}
+              handleNextClick={() => setStep(step + 1)}
+            />
+
+            <Steps.Thanks className={step === 5 ? "" : "hidden"} />
+          </div>
+        </Form.Root>
       </div>
     </main>
   );

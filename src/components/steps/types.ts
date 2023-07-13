@@ -5,6 +5,5 @@ export type AddonProps = {
 };
 
 export type FooterTProps = {
-  step: number;
-  setStep: any;
+  children: React.ReactNode;
 };

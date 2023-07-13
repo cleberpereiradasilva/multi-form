@@ -1,9 +1,13 @@
-type InputProps = {
+export type InputProps = {
   label?: string;
   placeholder?: string;
   name?: string;
   id?: string;
   value?: string;
-  validator?: void;
-  message?: string;
+  type?: string;
+  typeMismatchMessage?: string;
+  requiredMessage?: string;
+  required?: boolean;
 };
+
+export type MaskProps = InputProps & { mask: string };
