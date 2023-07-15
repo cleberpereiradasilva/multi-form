@@ -9,16 +9,19 @@ export const Two = ({
   className,
   plan,
   setPlan,
+  period,
+  setPeriod,
   handleNextClick,
   handleBackClick,
 }: {
   className: string;
   plan: string;
   setPlan: Dispatch<SetStateAction<string>>;
+  period: number;
+  setPeriod: Dispatch<SetStateAction<number>>;
   handleNextClick?: MouseEventHandler<HTMLButtonElement>;
   handleBackClick?: MouseEventHandler<HTMLButtonElement>;
 }) => {
-  const [period, setPeriod] = useState(1);
   return (
     <div className={`${className} flex flex-col  h-full justify-between`}>
       <Content>
@@ -28,9 +31,9 @@ export const Two = ({
             You have the option monthly or yearly billing
           </Typograph.Info>
           <div className="pt-6">
-            <div className="flex md:h-44 justify-between md:flex-row sm:flex-col">
+            <div className="flex justify-between md:flex-row sm:flex-col">
               <Form.Plan name={"Arcade"} plan={plan} handleClick={setPlan}>
-                <div className="pr-3">
+                <div className="pr-3 pb-9">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="40"
@@ -49,12 +52,24 @@ export const Two = ({
                 </div>
                 <div className="flex flex-col items-start">
                   <div className="font-bold text-blue-marine">Arcade</div>
-                  <div className="text-sm">$9/mo</div>
+                  <div className={`text-sm ${period === -1 ? "hidden" : ""}`}>
+                    $9/mo
+                  </div>
+                  <div className={`text-sm ${period === 1 ? "hidden" : ""}`}>
+                    $90/yr
+                  </div>
+                </div>
+                <div
+                  className={` text-blue-marine ${
+                    period === 1 ? "hidden" : ""
+                  }`}
+                >
+                  2 months free
                 </div>
               </Form.Plan>
 
               <Form.Plan name={"Advanced"} plan={plan} handleClick={setPlan}>
-                <div className="pr-3">
+                <div className="pr-3 pb-9">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="40"
@@ -73,12 +88,24 @@ export const Two = ({
                 </div>
                 <div className="flex flex-col items-start">
                   <div className="font-bold text-blue-marine">Advanced</div>
-                  <div className="text-sm">$12/mo</div>
+                  <div className={`text-sm ${period === -1 ? "hidden" : ""}`}>
+                    $12/mo
+                  </div>
+                  <div className={`text-sm ${period === 1 ? "hidden" : ""}`}>
+                    $120/yr
+                  </div>
+                </div>
+                <div
+                  className={` text-blue-marine ${
+                    period === 1 ? "hidden" : ""
+                  }`}
+                >
+                  2 months free
                 </div>
               </Form.Plan>
 
               <Form.Plan name={"Pro"} plan={plan} handleClick={setPlan}>
-                <div className="pr-3">
+                <div className="pr-3 pb-9">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="40"
@@ -97,7 +124,19 @@ export const Two = ({
                 </div>
                 <div className="flex flex-col items-start">
                   <div className="font-bold text-blue-marine">Pro</div>
-                  <div className="text-sm">$15/mo</div>
+                  <div className={`text-sm ${period === -1 ? "hidden" : ""}`}>
+                    $15/mo
+                  </div>
+                  <div className={`text-sm ${period === 1 ? "hidden" : ""}`}>
+                    $150/yr
+                  </div>
+                </div>
+                <div
+                  className={` text-blue-marine ${
+                    period === 1 ? "hidden" : ""
+                  }`}
+                >
+                  2 months free
                 </div>
               </Form.Plan>
             </div>

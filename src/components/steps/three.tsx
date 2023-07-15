@@ -7,10 +7,12 @@ import { Content } from "./content";
 
 export const Three = ({
   className,
+  period = 1,
   handleNextClick,
   handleBackClick,
 }: {
   className: string;
+  period: number;
   handleNextClick?: MouseEventHandler<HTMLButtonElement>;
   handleBackClick?: MouseEventHandler<HTMLButtonElement>;
 }) => {
@@ -53,8 +55,20 @@ export const Three = ({
                   </div>
                   <div className="text-sm">Access to multiplayer games</div>
                 </div>
-                <div className="text-sm text-blue-purple font-bold pr-5">
-                  +$9/mo
+                <div
+                  className={`${
+                    period === -1 ? "hidden" : ""
+                  } text-sm text-blue-purple font-bold pr-5`}
+                >
+                  +$1/mo
+                </div>
+
+                <div
+                  className={`${
+                    period === 1 ? "hidden" : ""
+                  } text-sm text-blue-purple font-bold pr-5`}
+                >
+                  +$10/yr
                 </div>
               </Addon>
 
@@ -73,8 +87,20 @@ export const Three = ({
                   </div>
                   <div className="text-sm">Extra 1TB of cloud save</div>
                 </div>
-                <div className="text-sm text-blue-purple font-bold pr-5">
+                <div
+                  className={`${
+                    period === -1 ? "hidden" : ""
+                  } text-sm text-blue-purple font-bold pr-5`}
+                >
                   +$2/mo
+                </div>
+
+                <div
+                  className={`${
+                    period === 1 ? "hidden" : ""
+                  } text-sm text-blue-purple font-bold pr-5`}
+                >
+                  +$20/yr
                 </div>
               </Addon>
 
@@ -93,8 +119,20 @@ export const Three = ({
                   </div>
                   <div className="text-sm">Custom theme on your profile</div>
                 </div>
-                <div className="text-sm text-blue-purple font-bold pr-5">
+                <div
+                  className={`${
+                    period === -1 ? "hidden" : ""
+                  } text-sm text-blue-purple font-bold pr-5`}
+                >
                   +$2/mo
+                </div>
+
+                <div
+                  className={`${
+                    period === 1 ? "hidden" : ""
+                  } text-sm text-blue-purple font-bold pr-5`}
+                >
+                  +$20/yr
                 </div>
               </Addon>
             </div>

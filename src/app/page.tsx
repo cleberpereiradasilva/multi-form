@@ -7,6 +7,7 @@ import { Form } from "@/components/form";
 export default function Home() {
   const [step, setStep] = useState(1);
   const [plan, setPlan] = useState("Pro");
+  const [period, setPeriod] = useState(1);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -40,10 +41,13 @@ export default function Home() {
               className={step === 2 ? "" : "hidden"}
               plan={plan}
               setPlan={setPlan}
+              period={period}
+              setPeriod={setPeriod}
               handleNextClick={() => setStep(step + 1)}
               handleBackClick={() => setStep(step - 1)}
             />
             <Steps.Three
+              period={period}
               className={step === 3 ? "" : "hidden"}
               handleNextClick={() => setStep(step + 1)}
               handleBackClick={() => setStep(step - 1)}
