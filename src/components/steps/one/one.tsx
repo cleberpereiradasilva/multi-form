@@ -38,7 +38,6 @@ export const One = ({ className }: { className: string }) => {
             name="name"
             placeholder="e.g. Stephen King"
             onChange={(e: any) => {
-              console.log(e.target.validity.valid);
               setName(e.target.value);
             }}
           />

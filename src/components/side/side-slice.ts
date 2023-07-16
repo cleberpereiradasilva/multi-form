@@ -9,7 +9,6 @@ const sideSlice = createSlice({
   initialState,
   reducers: {
     nextPage(state) {
-      console.log("aqui");
       if (state.step < 5) state.step += 1;
     },
     previewsPage(state) {
