@@ -2586,13 +2586,6 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-ts-input-mask@^2.2.0:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/ts-input-mask/-/ts-input-mask-2.2.0.tgz#bdb111739708da178d4d70da30ed0161a9313d3f"
-  integrity sha512-mnELdYqyxs6ZhBh2jFGupECXdLrBjHXaIxLBRAw/iekKzbud8ugLNlRTjjUhquv9aKRtXaEZOCynOA/4sfHm4Q==
-  dependencies:
-    typescript "3.7.5"
-
 ts-interface-checker@^0.1.9:
   version "0.1.13"
   resolved "https://registry.yarnpkg.com/ts-interface-checker/-/ts-interface-checker-0.1.13.tgz#784fd3d679722bc103b1b4b8030bcddb5db2a699"
@@ -2645,11 +2638,6 @@ typed-array-length@^1.0.4:
     call-bind "^1.0.2"
     for-each "^0.3.3"
     is-typed-array "^1.1.9"
-
-typescript@3.7.5:
-  version "3.7.5"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.7.5.tgz#0692e21f65fd4108b9330238aac11dd2e177a1ae"
-  integrity sha512-/P5lkRXkWHNAbcJIiHPfRoKqyd7bsyCma1hZNUGfn20qm64T6ZBlrzprymeu918H+mB/0rIg2gGK/BXkhhYgBw==
 
 typescript@5.1.6:
   version "5.1.6"

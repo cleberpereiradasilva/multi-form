@@ -1,46 +1,53 @@
 import * as Form from "@radix-ui/react-form";
-import { useState } from "react";
 import { InputProps } from "./types";
+import { useState } from "react";
 export const Input = ({
   label,
-  placeholder,
   required = false,
-  name,
-  id,
-  value,
-  type,
   requiredMessage,
   typeMismatchMessage,
+  ...otherProps
 }: InputProps) => {
-  const [thisValue, setThisValue] = useState(value || "");
+  const [errors, setErrors] = useState(null);
+
+  const handleValidation = (evt) => {
+    if (!evt.target.validity.valid) {
+      for (const key in evt.target.validity) {
+        if (evt.target.validity[key]) {
+          setErrors(key);
+        }
+      }
+    }
+  };
   return (
     <div className="flex flex-col mt-7">
-      <Form.Field name={name || "name"}>
+      <Form.Field name={otherProps?.name || "name"}>
         <div className="flex flex-row justify-between">
           <Form.Label className="FormLabel">{label}</Form.Label>
-          <Form.Message
-            className="font-bold text-sm text-red-strawberry pr-1"
-            match="valueMissing"
+          <div
+            className={`font-bold text-sm text-red-strawberry pr-1 ${
+              errors === "valueMissing" ? "block" : "hidden"
+            }`}
           >
             {requiredMessage || "This field is required"}
-          </Form.Message>
-          <Form.Message
-            className="font-bold text-sm text-red-strawberry pr-1"
-            match="typeMismatch"
+          </div>
+          <div
+            className={`font-bold text-sm text-red-strawberry pr-1 ${
+              errors === "typeMismatch" ? "block" : "hidden"
+            }`}
           >
             {typeMismatchMessage || "Invalid value"}
-          </Form.Message>
+          </div>
         </div>
         <Form.Control asChild>
           <input
+            {...otherProps}
             className="border-2 rounded-lg p-2 w-full"
-            type={type || ""}
-            id={id || name}
+            id={otherProps?.id || otherProps?.name}
             required={required}
-            placeholder={placeholder}
-            value={thisValue}
-            onChange={(evt: any) => {
-              setThisValue(evt.target.value);
+            onBlur={handleValidation}
+            onFocus={() => {
+              setErrors(null);
             }}
           />
         </Form.Control>

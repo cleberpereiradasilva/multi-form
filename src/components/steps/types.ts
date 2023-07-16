@@ -1,7 +1,6 @@
 export type AddonProps = {
   children: React.ReactNode;
-  addons: string[];
-  addonName: string;
+  className?: string;
 };
 
 export type FooterTProps = {

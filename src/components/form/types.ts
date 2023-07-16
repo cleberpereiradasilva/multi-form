@@ -1,13 +1,12 @@
-export type InputProps = {
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
-  placeholder?: string;
-  name?: string;
-  id?: string;
-  value?: string;
-  type?: string;
   typeMismatchMessage?: string;
   requiredMessage?: string;
   required?: boolean;
-};
+}
 
 export type MaskProps = InputProps & { mask: string };
+
+export interface PlanProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}

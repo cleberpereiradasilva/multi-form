@@ -1,21 +1,24 @@
 import Link from "next/link";
 import { Typograph } from "../Typograph";
 import { Footer } from "./footer";
-import { MouseEventHandler } from "react";
 import { Form } from "../form";
 import { Content } from "./content";
+import { useDispatch } from "react-redux";
 
-export const Sumary = ({
-  className,
-  changePlan,
-  handleNextClick,
-  handleBackClick,
-}: {
-  className: string;
-  changePlan: any;
-  handleNextClick?: MouseEventHandler<HTMLButtonElement>;
-  handleBackClick?: MouseEventHandler<HTMLButtonElement>;
-}) => {
+import { nextPage, setPage } from "./../side/side-slice";
+import { useSelector } from "react-redux";
+
+export const Sumary = ({ className }: { className: string }) => {
+  const dispatch = useDispatch();
+  const totalPrice = useSelector((state: any) => state.plan.totalPrice);
+  const addons = useSelector((state: any) => state.addons.addons);
+  const activePeriod = useSelector((state: any) => state.plan.period);
+  const shortPeriod = useSelector((state: any) => state.plan.shortPeriod);
+  const activeName = useSelector((state: any) => state.plan.activePlan.name);
+  const activePrice = useSelector(
+    (state: any) => state.plan.activePlan.price[activePeriod]?.price
+  );
+
   return (
     <div className={`${className} flex flex-col  h-full justify-between`}>
       <Content>
@@ -30,44 +33,55 @@ export const Sumary = ({
                 <div className="border-b-[1px] p-3 pt-5 pl-5 flex justify-between">
                   <div>
                     <div className="text-blue-marine font-bold">
-                      Arcade (Yearly)
+                      {activeName} {activePeriod}
                     </div>
                     <div className="text-sm">
-                      <Link href="#" className="underline" onClick={changePlan}>
+                      <Link
+                        href="#"
+                        className="underline"
+                        onClick={() => {
+                          dispatch(setPage({ activeStep: 2 }));
+                        }}
+                      >
                         Change
                       </Link>
                     </div>
                   </div>
-                  <div className="text-blue-marine font-bold">$90/yr</div>
+                  <div className="text-blue-marine font-bold">
+                    +${activePrice}/{shortPeriod}
+                  </div>
                 </div>
 
-                <div className="flex justify-between p-3 pl-5  h-13 items-center">
-                  <div className="text-sm">Online service</div>
-                  <div className=" text-blue-800 text-sm font-bold">$90/yr</div>
-                </div>
-
-                <div className="flex justify-between p-3 pl-5 h-13 items-center">
-                  <div className="text-sm">Larger storage</div>
-                  <div className=" text-blue-800 text-sm font-bold">$90/yr</div>
-                </div>
+                {addons.map(({ id, title, price }) => (
+                  <div
+                    key={id}
+                    className="flex justify-between p-3 pl-5  h-13 items-center"
+                  >
+                    <div className="text-sm">{title}</div>
+                    <div className=" text-blue-800 text-sm font-bold">
+                      +${price[activePeriod].price}/{shortPeriod}
+                    </div>
+                  </div>
+                ))}
               </div>
               <div className="flex justify-between pl-5 pt-5 pr-3 ">
-                <div>Total(per year)</div>
-                <div className=" text-blue-700 text-2xl font-bold">$120/yr</div>
+                <div>Total(per {activePeriod})</div>
+                <div className=" text-blue-700 text-2xl font-bold">
+                  +${totalPrice}/{shortPeriod}
+                </div>
               </div>
             </div>
           </div>
         </div>
       </Content>
       <Footer>
-        {handleBackClick && (
-          <Form.GostButton onClick={handleBackClick}>Go Back</Form.GostButton>
-        )}
-        {handleNextClick && (
-          <Form.PrimaryButton className="bg-blue-800" onClick={handleNextClick}>
-            Confirm
-          </Form.PrimaryButton>
-        )}
+        <div />
+        <Form.PrimaryButton
+          className="bg-blue-800"
+          onClick={() => dispatch(nextPage())}
+        >
+          Confirm
+        </Form.PrimaryButton>
       </Footer>
     </div>
   );
