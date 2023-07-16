@@ -23,7 +23,9 @@ export const Input = ({
     <div className="flex flex-col mt-7">
       <Form.Field name={otherProps?.name || "name"}>
         <div className="flex flex-row justify-between">
-          <Form.Label className="FormLabel">{label}</Form.Label>
+          <Form.Label className="text-blue-marine font-bold">
+            {label}
+          </Form.Label>
           <div
             className={`font-bold text-sm text-red-strawberry pr-1 ${
               errors === "valueMissing" ? "block" : "hidden"

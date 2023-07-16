@@ -32,7 +32,7 @@ export const Sumary = ({ className }: { className: string }) => {
               <div className="bg-gray-100 rounded-lg pb-3">
                 <div className="border-b-[1px] p-3 pt-5 pl-5 flex justify-between">
                   <div>
-                    <div className="text-blue-marine font-bold">
+                    <div className="text-blue-marine font-bold capitalize">
                       {activeName} {activePeriod}
                     </div>
                     <div className="text-sm">
@@ -65,7 +65,7 @@ export const Sumary = ({ className }: { className: string }) => {
                 ))}
               </div>
               <div className="flex justify-between pl-5 pt-5 pr-3 ">
-                <div>Total(per {activePeriod})</div>
+                <div>Total (per {activePeriod})</div>
                 <div className=" text-blue-700 text-2xl font-bold">
                   +${totalPrice}/{shortPeriod}
                 </div>

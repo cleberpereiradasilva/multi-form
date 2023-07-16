@@ -16,7 +16,9 @@ export const Mask = ({
     <div className="flex flex-col mt-7">
       <Form.Field name={name || "name"}>
         <div className="flex flex-row justify-between">
-          <Form.Label className="FormLabel">{label}</Form.Label>
+          <Form.Label className="FormLabel text-blue-marine font-bold">
+            {label}
+          </Form.Label>
           <Form.Message
             className="font-bold text-sm text-red-strawberry pr-1"
             match="valueMissing"

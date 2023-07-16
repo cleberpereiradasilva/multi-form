@@ -50,7 +50,7 @@ export const Three = ({ className }: { className: string }) => {
             : ""
         }
       >
-        <div className="p-7">
+        <div className="flex sm:p-3 md:p-7">
           <input
             type="checkbox"
             className="w-5 h-5"
@@ -85,7 +85,7 @@ export const Three = ({ className }: { className: string }) => {
           Go Back
         </Form.GostButton>
         <Form.PrimaryButton onClick={() => dispatch(nextPage())}>
-          Next 3
+          Next
         </Form.PrimaryButton>
       </Footer>
     </div>

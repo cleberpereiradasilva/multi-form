@@ -7,12 +7,12 @@ export const Thanks = ({ className }: { className: string }) => {
     <div
       className={`${className} flex flex-col sm:h-64 md:h-full sm:pt-0 md:pt-32 `}
     >
-      <Content className="sm:pt-20 sm:pb-20">
+      <Content className="sm:pt-19 sm:pb-20">
         <div className="flex justify-center">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="80"
-            height="80"
+            width="70"
+            height="70"
             viewBox="0 0 80 80"
           >
             <g fill="none">
@@ -28,10 +28,10 @@ export const Thanks = ({ className }: { className: string }) => {
             </g>
           </svg>
         </div>
-        <Typograph.Title className="text-center pb-3 pt-10">
+        <Typograph.Title className="text-center pt-7">
           Thank you!
         </Typograph.Title>
-        <Typograph.Info className="text-center flex sm:p-3 md:pl-10 md:pr-10">
+        <Typograph.Info className="text-center flex sm:p-6 md:pl-10 md:pr-10">
           Thanks for confirming your subscriptiom! We hope you have fun using
           our plaform. If you ever need support, please fell free to email us at
           support@loremgaming.com.

@@ -26,6 +26,7 @@ module.exports = {
         side: '375px',
         form: '645px',
         19: '4.7rem',
+        22: '5.5rem',
         184: '36.5rem',
         92: '23.5rem',
         930: '930px',

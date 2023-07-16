@@ -54,15 +54,15 @@ export const Two = ({ className }: { className: string }) => {
             activePlan.id === id ? "border-blue-marine bg-blue-50" : ""
           }
         >
-          <div className="pr-3 pb-9">{image}</div>
+          <div className="pr-3 md:pb-9 sm:pb-3">{image}</div>
           <div className="flex flex-col items-start">
             <div className="font-bold text-blue-marine">{name}</div>
             <div className={`text-sm`}>
               +${price[activePeriod]?.price}/{shortPeriod}
             </div>
-          </div>
-          <div className={` text-blue-marine h-5`}>
-            {price[activePeriod].message}
+            <div className={` text-blue-marine`}>
+              {price[activePeriod].message}
+            </div>
           </div>
         </Form.Plan>
         <div className="w-3 h-2 last:hidden" />
