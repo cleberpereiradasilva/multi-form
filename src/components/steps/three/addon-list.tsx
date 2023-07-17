@@ -1,4 +1,4 @@
-export interface Addon {
+export type Addon = {
   id: number;
   title: string;
   description: string;
@@ -10,7 +10,7 @@ export interface Addon {
       price: number;
     };
   };
-}
+};
 
 export const addonList: Addon[] = [
   {

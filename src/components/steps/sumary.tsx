@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 
 import { nextPage, setPage } from "./../side/side-slice";
 import { useSelector } from "react-redux";
+import { Addon } from "./three/addon-list";
 
 export const Sumary = ({ className }: { className: string }) => {
   const dispatch = useDispatch();
@@ -52,14 +53,19 @@ export const Sumary = ({ className }: { className: string }) => {
                   </div>
                 </div>
 
-                {addons.map(({ id, title, price }) => (
+                {addons.map(({ id, title, price }: Addon) => (
                   <div
                     key={id}
                     className="flex justify-between p-3 pl-5  h-13 items-center"
                   >
                     <div className="text-sm">{title}</div>
                     <div className=" text-blue-800 text-sm font-bold">
-                      +${price[activePeriod].price}/{shortPeriod}
+                      +$
+                      {
+                        //@ts-ignore
+                        price[activePeriod].price
+                      }
+                      /{shortPeriod}
                     </div>
                   </div>
                 ))}

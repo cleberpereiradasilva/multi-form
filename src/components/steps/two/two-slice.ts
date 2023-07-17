@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { planList } from "./price-list";
+import { Plan, planList } from "./price-list";
 
-const initialPlan = planList.find((plan) => plan.id === 1);
+const initialPlan: Plan = planList.find((plan: Plan) => plan.id === 1) as Plan;
 const initialState = {
   period: "monthly",
   shortPeriod: "mo",

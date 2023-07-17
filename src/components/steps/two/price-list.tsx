@@ -1,4 +1,22 @@
-export const planList = [
+export type Price = {
+  monthly: {
+    price: number;
+    message: string;
+  };
+  yearly: {
+    price: number;
+    message: string;
+  };
+};
+
+export type Plan = {
+  id: number;
+  name: string;
+  image: JSX.Element;
+  price: Price;
+};
+
+export const planList: Plan[] = [
   {
     id: 1,
     name: "Arcade",

@@ -13,11 +13,11 @@ export const MultiForm = () => {
     event.preventDefault();
   };
 
-  const fullState = useSelector((state) => JSON.stringify(state));
-  const activeStep = useSelector((state) => state.navigate.step);
-  const activeAddons = useSelector((state) => state.addons.addons);
-  const activePlan = useSelector((state) => state.plan.activePlan);
-  const activePeriod = useSelector((state) => state.plan.period);
+  const fullState = useSelector((state: any) => JSON.stringify(state));
+  const activeStep = useSelector((state: any) => state.navigate.step);
+  const activeAddons = useSelector((state: any) => state.addons.addons);
+  const activePlan = useSelector((state: any) => state.plan.activePlan);
+  const activePeriod = useSelector((state: any) => state.plan.period);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -1,6 +1,6 @@
 import * as Form from "@radix-ui/react-form";
 import { InputProps } from "./types";
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 export const Input = ({
   label,
   required = false,
@@ -10,11 +10,11 @@ export const Input = ({
 }: InputProps) => {
   const [errors, setErrors] = useState(null);
 
-  const handleValidation = (evt) => {
+  const handleValidation = (evt: any) => {
     if (!evt.target.validity.valid) {
       for (const key in evt.target.validity) {
         if (evt.target.validity[key]) {
-          setErrors(key);
+          setErrors(key as unknown as SetStateAction<null>);
         }
       }
     }

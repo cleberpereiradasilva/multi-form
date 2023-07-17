@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { SetStateAction, useState } from "react";
 import { Typograph } from "../../Typograph";
 import { Addon } from "../addon";
 import { Footer } from "../footer";
@@ -8,8 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { nextPage, previewsPage } from "./../../side/side-slice";
 import { setAddon as saveAddon } from "./three-slice";
-import { addonList } from "./addon-list";
-import { setTotalPrice } from "../two/two-slice";
+import { Addon as AddonType, addonList } from "./addon-list";
 
 export const Three = ({ className }: { className: string }) => {
   const [addons, setAddons] = useState([]);
@@ -22,30 +21,32 @@ export const Three = ({ className }: { className: string }) => {
   }) => {
     const { checked, value }: { checked: boolean; value: string } = evt.target;
     if (checked) {
-      const newAddon = addonList.find((addon) => addon.id === Number(value));
+      const newAddon: any = addonList.find(
+        (addon) => addon.id === Number(value)
+      );
       const auxAddons = [...addons];
       auxAddons.push({
         id: newAddon.id,
         title: newAddon.title,
         price: newAddon.price,
-      });
+      } as unknown as never);
       setAddons(auxAddons);
       dispatch(saveAddon(auxAddons));
     } else {
-      const auxAddons = [...addons].filter(
+      const auxAddons = ([...addons] as unknown[] as AddonType[]).filter(
         (addon) => addon.id !== Number(value)
       );
-      setAddons(auxAddons);
+      setAddons(auxAddons as unknown[] as SetStateAction<never[]>);
       dispatch(saveAddon(auxAddons));
     }
   };
 
   const showAddons = () =>
-    addonList.map(({ id, title, description, price }) => (
+    addonList.map(({ id, title, description, price }: AddonType) => (
       <Addon
         key={id}
         className={
-          addons.find((adon) => adon.id === id)
+          addons.find((addon: AddonType) => addon.id === id)
             ? "border-blue-purple bg-blue-purple-light"
             : ""
         }
@@ -63,7 +64,12 @@ export const Three = ({ className }: { className: string }) => {
           <div className="text-sm">{description}</div>
         </div>
         <div className={` text-sm text-blue-purple font-bold pr-5`}>
-          +${price[activePeriod]?.price}/{shortPeriod}
+          +$
+          {
+            //@ts-ignore
+            price[activePeriod]?.price
+          }
+          /{shortPeriod}
         </div>
       </Addon>
     ));

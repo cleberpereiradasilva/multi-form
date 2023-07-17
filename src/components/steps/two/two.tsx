@@ -36,10 +36,14 @@ export const Two = ({ className }: { className: string }) => {
     };
   }) => {
     dispatch(planSave({ name, id, price: price }));
-    const totalPrice = addons.reduce((acc: number, addon: any) => {
-      acc = acc + addon.price[activePeriod].price;
-      return acc;
-    }, price[activePeriod].price);
+    const totalPrice = addons.reduce(
+      (acc: number, addon: any) => {
+        acc = acc + addon.price[activePeriod].price;
+        return acc;
+      },
+      //@ts-ignore
+      price[activePeriod].price
+    );
     dispatch(setTotalPrice(totalPrice));
   };
 
@@ -58,10 +62,18 @@ export const Two = ({ className }: { className: string }) => {
           <div className="flex flex-col items-start">
             <div className="font-bold text-blue-marine">{name}</div>
             <div className={`text-sm`}>
-              +${price[activePeriod]?.price}/{shortPeriod}
+              +$
+              {
+                //@ts-ignore
+                price[activePeriod]?.price
+              }
+              /{shortPeriod}
             </div>
             <div className={` text-blue-marine`}>
-              {price[activePeriod].message}
+              {
+                //@ts-ignore
+                price[activePeriod].message
+              }
             </div>
           </div>
         </Form.Plan>
