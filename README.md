@@ -1,6 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Mentor - Multi-step form solution
 
-## Getting Started
+This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+
+## Table of contents
+
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [How to run](#how-to-run)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [Composition](#composition)
+- [Author](#author)
+
+## Overview
+
+### The challenge
+
+Users should be able to:
+
+- View the optimal layout for the interface depending on their device's screen size
+- See hover and focus states for all interactive elements on the page
+
+### Screenshot
+
+| Destop                                                |                       Mobile                        |
+| ----------------------------------------------------- | :-------------------------------------------------: |
+| ![Desktop screenshot](./result/screen_desktop_01.png) | ![Mobile screenshot](./result/screen_mobile_01.png) |
+| ![Desktop screenshot](./result/screen_desktop_02.png) | ![Mobile screenshot](./result/screen_mobile_02.png) |
+| ![Desktop screenshot](./result/screen_desktop_04.png) | ![Mobile screenshot](./result/screen_mobile_03.png) |
+| ![Desktop screenshot](./result/screen_desktop_05.png) | ![Mobile screenshot](./result/screen_mobile_04.png) |
+| ![Desktop screenshot](./result/screen_desktop_06.png) | ![Mobile screenshot](./result/screen_mobile_05.png) |
+
+### How to run
+
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 First, run the development server:
 
@@ -14,21 +49,42 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Links
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Live Site URL: [https://cleberpereiradasilva.github.io/multi-form/](https://cleberpereiradasilva.github.io/multi-form/)
 
-## Learn More
+### Built with
 
-To learn more about Next.js, take a look at the following resources:
+- CSS custom properties
+- Flexbox
+- [React](https://reactjs.org/) - JS library
+- [Next.js](https://nextjs.org/) - React framework
+- [Tailwindcss](https://tailwindcss.com/docs/screens) - For styles
+- [Github](https://www.github.com/) - For stored, shared and deploy
+- [Redux](https://react-redux.js.org/) - For stored application state
+- [Radix](hhttps://www.radix-ui.com/) - Unstyled, accessible components for building high‑quality design systems and web apps in React.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Composition
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+I used the composition pattern to create components.
 
-## Deploy on Vercel
+To see how you can create `Form`` component, see below:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```html
+<Form.Root className="w-full h-full" onSubmit="{handleSubmit}">
+  <div className="h-full w-full flex  flex-col justify-between">
+    <Steps.One className={activeStep === 1 ? "" : "hidden"} /> <Steps.Two
+    className={activeStep === 2 ? "" : "hidden"} /> <Steps.Three
+    className={activeStep === 3 ? "" : "hidden"} /> <Steps.Sumary
+    className={activeStep === 4 ? "" : "hidden"} /> <Steps.Thanks
+    className={activeStep === 5 ? "" : "hidden"} />
+  </div>
+</Form.Root>
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If you want more about composition, I recommend checking out [FrontEnd Mastery](https://frontendmastery.com/posts/advanced-react-component-composition-guide/) to learn more.
+
+## Author
+
+- Website - [Cleber Silva](https://www.clebersilva.dev)
+- Frontend Mentor - [@cleberpereiradasilva](https://www.frontendmentor.io/profile/cleberpereiradasilva)
