@@ -49,7 +49,10 @@ export const Two = ({ className }: { className: string }) => {
 
   const showPlans = () => {
     return planList.map(({ id, name, image, price }) => (
-      <div key={`plan-${id}`}>
+      <div
+        key={`plan-${id}`}
+        className="md:w-1/3 flex mb-2 mr-2 md:last:mr-0 sm:h-full"
+      >
         <Form.Plan
           key={id}
           name={name}
@@ -77,7 +80,6 @@ export const Two = ({ className }: { className: string }) => {
             </div>
           </div>
         </Form.Plan>
-        <div className="w-3 h-2 last:hidden" key={`div-${id}`} />
       </div>
     ));
   };
