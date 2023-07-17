@@ -58,7 +58,7 @@ export const MultiForm = () => {
           </div>
         </Form.Root>
       </div>
-      <div className="mt-3 sm:hidden lg:w-930  md:w-full sm:min-h-full md:bg-white sm:p-0 md:p-2 flex sm:flex-col md:flex-row lg:flex-row">
+      <div className="mt-3 sm:hidden md:block lg:w-930  md:w-full sm:min-h-full md:bg-white sm:p-0 md:p-2 flex sm:flex-col md:flex-row lg:flex-row">
         <Typograph.Title>Redux payload</Typograph.Title>
         <Typograph.Info className="flex sm:p-3 md:pl-10 md:pr-10">
           {fullState}

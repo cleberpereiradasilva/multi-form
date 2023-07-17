@@ -85,6 +85,12 @@ To see how you can create `Form`` component, see below:
 
 If you want more about composition, I recommend checking out [FrontEnd Mastery](https://frontendmastery.com/posts/advanced-react-component-composition-guide/) to learn more.
 
+## Redux
+
+To memange the application state I use **Redux** and put a **state display** in botton of page.
+
+![Redux screenshot](./result/redux.png)
+
 ## Author
 
 - Website - [Cleber Silva](https://www.clebersilva.dev)
