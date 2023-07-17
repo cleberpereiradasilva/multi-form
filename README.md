@@ -2,6 +2,10 @@
 
 This is a solution to the [Multi-step form challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+### Demo
+
+- Live Site URL: [https://cleberpereiradasilva.github.io/multi-form/](https://cleberpereiradasilva.github.io/multi-form/)
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -22,6 +26,7 @@ Users should be able to:
 
 - View the optimal layout for the interface depending on their device's screen size
 - See hover and focus states for all interactive elements on the page
+- You can see the breefing in the folder **briefing**
 
 ### Screenshot
 
@@ -48,10 +53,6 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-### Links
-
-- Live Site URL: [https://cleberpereiradasilva.github.io/multi-form/](https://cleberpereiradasilva.github.io/multi-form/)
 
 ### Built with
 
