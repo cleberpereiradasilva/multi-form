@@ -74,11 +74,17 @@ To see how you can create `Form`` component, see below:
 ```html
 <Form.Root className="w-full h-full" onSubmit="{handleSubmit}">
   <div className="h-full w-full flex  flex-col justify-between">
-    <Steps.One className={activeStep === 1 ? "" : "hidden"} /> <Steps.Two
-    className={activeStep === 2 ? "" : "hidden"} /> <Steps.Three
-    className={activeStep === 3 ? "" : "hidden"} /> <Steps.Sumary
-    className={activeStep === 4 ? "" : "hidden"} /> <Steps.Thanks
-    className={activeStep === 5 ? "" : "hidden"} />
+
+    <Steps.One className={activeStep === 1 ? "" : "hidden"} />
+
+    <Steps.Two className={activeStep === 2 ? "" : "hidden"} />
+
+    <Steps.Three className={activeStep === 3 ? "" : "hidden"} />
+
+    <Steps.Sumary className={activeStep === 4 ? "" : "hidden"} />
+
+    <Steps.Thanks className={activeStep === 5 ? "" : "hidden"} />
+
   </div>
 </Form.Root>
 ```
